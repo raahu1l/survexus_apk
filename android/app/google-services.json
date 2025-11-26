@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "928440699281",
+    "project_id": "survexus",
+    "storage_bucket": "survexus.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928440699281:android:f2269df482e936dd723230",
+        "android_client_info": {
+          "package_name": "com.example.survexus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928440699281-l1breqi17a6ssau03jv46pruolsa6sn7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.survexus",
+            "certificate_hash": "ac3d997cbafe3e5a3521965720da5f1d7e000b26"
+          }
+        },
+        {
+          "client_id": "928440699281-t2r12kqt0jubgs7t7ok1ibv7uk84fts3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKNjsdvoZ7Un8NvmHZc0YtB6Vn9lAVYpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928440699281-t2r12kqt0jubgs7t7ok1ibv7uk84fts3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "928440699281-6ohrueebstm059hq3b9de7kifh170k80.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.survexus"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

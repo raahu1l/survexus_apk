@@ -1,0 +1,98 @@
+# -------------------------
+# FLUTTER / DART
+# -------------------------
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+generated_plugin_registrant.dart
+
+# -------------------------
+# API KEYS & SECRET FILES
+# -------------------------
+.env
+.env.development
+.env.production
+.env.local
+lib/secrets.dart          # <-- Your Groq API key file (IGNORE THIS)
+secrets.dart              # <-- If outside lib/
+*.secret
+*.key
+*.pem
+*.p12
+*.crt
+
+# -------------------------
+# LOGS & TEMP FILES
+# -------------------------
+*.log
+*.tmp
+*.swp
+*.lock
+*.bak
+*.old
+
+# -------------------------
+# OS / EDITOR FILES
+# -------------------------
+.DS_Store
+*.iml
+.idea/
+*.ipr
+*.iws
+.vscode/
+
+# -------------------------
+# ANDROID
+# -------------------------
+/android/.gradle/
+/android/captures/
+/android/app/debug/
+/android/app/profile/
+/android/app/release/
+/android/local.properties
+/android/key.properties
+/android/app/*.keystore
+/android/app/*.jks
+
+# Optional: Ignore Firebase config (remove if needed)
+# /android/app/google-services.json
+# /ios/Runner/GoogleService-Info.plist
+
+# -------------------------
+# IOS
+# -------------------------
+ios/Flutter/.last_build_id
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/build/
+xcuserdata/
+DerivedData/
+
+# -------------------------
+# RELEASE ARTIFACTS
+# -------------------------
+*.apk
+*.aab
+*.ipa
+*.app.zip
+*.symbols
+app.*.map.json
+app.*.symbols
+
+# -------------------------
+# MISC
+# -------------------------
+migrate_working_dir/
+.history
+.svn/
+.swiftpm/
+atom/
+.build/
+.buildlog/
+*.orig
+*.rej

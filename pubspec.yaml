@@ -1,0 +1,66 @@
+name: survexus
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 🔥 Firebase (all from the same stable generation)
+  firebase_core: ^3.8.0
+  firebase_auth: ^5.7.0
+  cloud_firestore: ^5.4.4
+  firebase_messaging: ^15.1.5
+  firebase_app_check: ^0.3.2
+
+  # 💳 Purchases & Notifications
+  in_app_purchase: ^3.2.3
+  flutter_local_notifications: ^17.2.2
+
+  # 🌐 Common utilities
+  http: ^1.2.2
+  provider: ^6.1.2
+  shared_preferences: ^2.3.3
+  fluttertoast: ^9.0.0
+  animations: ^2.0.8
+  qr_flutter: ^4.1.0
+  share_plus: ^10.0.2
+  path_provider: ^2.1.4
+  pdf: ^3.11.1
+  csv: ^5.1.1
+
+  # 📊 Charts
+  fl_chart: ^0.66.0
+  charts_flutter: ^0.12.0
+
+  # 👤 Sign-in
+  google_sign_in: ^6.2.1
+
+  # iOS-style icons
+  cupertino_icons: ^1.0.8
+  flutter_launcher_icons: ^0.14.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  mockito: ^5.4.4
+  fake_cloud_firestore: ^3.1.0
+  
+
+flutter:
+  uses-material-design: true
+  assets:
+   - assets/survexus_icon.jpg
+   - assets/screen_image.jpg
+   - assets/background_image.png
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/survexus_icon.jpg
+
