@@ -134,8 +134,6 @@ These are protected by `.gitignore`.
 ### Example Admin Accounts
 
 - Professor Admin  
-  Email: vpg@gmail.com  
-  Password: 1234
 
 - Student Admin  
   Email: rahul@gmail.com
