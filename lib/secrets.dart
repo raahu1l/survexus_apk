@@ -1,1 +1,1 @@
-const String groqApiKey = "your_api_key";
+const String groqApiKey = "YOUR_GROQ_API_KEY";
