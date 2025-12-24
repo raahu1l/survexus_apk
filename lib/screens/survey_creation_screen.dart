@@ -167,20 +167,16 @@ class _SurveyCreationScreenState extends State<SurveyCreationScreen> {
   }
 
   // Serialize a SurveyQuestion to a safe, normalized Map.
-  // This **ensures** the Firestore structure is:
-  // { question: "...", type: "mcq", options: [...], ratingMax: 5 }
   Map<String, Object?> _serializeQuestion(SurveyQuestion q) {
     return <String, Object?>{
       'question': q.question,
       'type': q.type.name,
-      // Always write options as a List (even if empty)
       'options': q.options.map((e) => e.toString()).toList(),
-      // ratingMax must be >= 1 for UI sanity; clamp if needed
       'ratingMax': q.ratingMax < 1 ? 5 : q.ratingMax,
     };
   }
 
-  // ------------------ FIXED _submit() ------------------
+  // ------------------ FIXED _submit() + TEAM SUPPORT ------------------
   Future<void> _submit() async {
     if (_titleController.text.trim().isEmpty) {
       _showSnack('Please enter a survey title.');
@@ -242,7 +238,6 @@ class _SurveyCreationScreenState extends State<SurveyCreationScreen> {
         creatorName = 'Guest';
       }
 
-      // Build normalized questions list
       final serializedQuestions =
           _questions.map((q) => _serializeQuestion(q)).toList();
 
@@ -265,7 +260,7 @@ class _SurveyCreationScreenState extends State<SurveyCreationScreen> {
         if (_bannerUrl != null) data['bannerUrl'] = _bannerUrl!;
       }
 
-      // write to Firestore
+      // write to Firestore (still in top-level surveys)
       final docRef =
           await FirebaseFirestore.instance.collection('surveys').add(data);
 
@@ -274,10 +269,8 @@ class _SurveyCreationScreenState extends State<SurveyCreationScreen> {
 
       if (!mounted) return;
 
-      // Reset loading BEFORE showing dialog to avoid showing blank screen
       if (mounted) setState(() => _loading = false);
 
-      // Show confirmation dialog using root navigator to avoid nested-context issues
       await showDialog(
         context: context,
         useRootNavigator: true,
@@ -297,20 +290,15 @@ class _SurveyCreationScreenState extends State<SurveyCreationScreen> {
         },
       );
 
-      // After the user closes the dialog, navigate back safely.
-      // Try to pop to previous screen with a result; if not possible, do nothing.
       if (!mounted) return;
       try {
         if (Navigator.of(context).canPop()) {
           Navigator.of(context).pop(true);
-        } else {
-          // If cannot pop (rare), simply stay — UI remains stable.
         }
       } catch (_) {
         // swallow navigation errors — do not crash app
       }
 
-      // Canceling subscriptions is safe but non-blocking — run without awaiting to avoid race.
       _vipSub?.cancel();
       _authSub?.cancel();
       _vipSub = null;
@@ -368,7 +356,7 @@ class _SurveyCreationScreenState extends State<SurveyCreationScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 16),
             _buildVipSection(),
             const SizedBox(height: 20),
             Expanded(
@@ -869,7 +857,6 @@ class SurveyQuestion {
         options = [],
         ratingMax = 5; // safe default
 
-  // Keep this for local usage — on save we use _serializeQuestion to ensure shape.
   Map<String, Object?> toMap() => {
         'type': type.name,
         'question': question,

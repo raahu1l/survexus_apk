@@ -1,4 +1,4 @@
-// lib/screens/dashboard_screen.dart
+// lib/screens/dashboard_screen.dart - CLEANED (NO TEAM FEATURES)
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -100,7 +100,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-          HomeDashboard(isGuest: isGuest), // ⭐ Chatbot lives here
+          HomeDashboard(isGuest: isGuest),
           const ExploreSurveysScreen(),
           isGuest
               ? const _SignInRequiredTab(feature: "create surveys")
@@ -140,7 +140,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 }
 
 /*───────────────────────────────────────────────────────────────*
- *                      HOME DASHBOARD
+ *                       HOME DASHBOARD
  *───────────────────────────────────────────────────────────────*/
 
 class HomeDashboard extends StatefulWidget {
@@ -215,10 +215,8 @@ class _HomeDashboardState extends State<HomeDashboard>
         .snapshots()
         .listen((snap) {
       if (!mounted) return;
-
       final premium =
           snap.data()?['premium'] == true || snap.data()?['isVIP'] == true;
-
       if (premium != _isVIP) {
         setState(() => _isVIP = premium);
       }
@@ -227,11 +225,7 @@ class _HomeDashboardState extends State<HomeDashboard>
 
   Future<void> _safeNavigate(BuildContext context, Widget page) async {
     if (!context.mounted) return;
-
-    await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => page),
-    );
+    await Navigator.push(context, MaterialPageRoute(builder: (_) => page));
   }
 
   @override
@@ -241,9 +235,6 @@ class _HomeDashboardState extends State<HomeDashboard>
 
     return Stack(
       children: [
-        /*───────────────────────────────────────────────*
-         *      MAIN HOME DASHBOARD UI (background)
-         *───────────────────────────────────────────────*/
         Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -256,9 +247,6 @@ class _HomeDashboardState extends State<HomeDashboard>
             child: ListView(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 28),
               children: [
-                // ------------------------------------------
-                // Header Row
-                // ------------------------------------------
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -290,11 +278,9 @@ class _HomeDashboardState extends State<HomeDashboard>
                           Text(
                             isGuest
                                 ? "Welcome — explore & respond"
-                                : "Let’s create something meaningful",
+                                : "Let's create something meaningful",
                             style: const TextStyle(
-                              color: Colors.white70,
-                              fontSize: 14,
-                            ),
+                                color: Colors.white70, fontSize: 14),
                           ),
                         ],
                       ),
@@ -323,44 +309,32 @@ class _HomeDashboardState extends State<HomeDashboard>
                             await FirebaseAuth.instance.signOut();
                             if (!context.mounted) return;
                             Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => LandingScreen()),
-                              (route) => false,
-                            );
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => LandingScreen()),
+                                (route) => false);
                           },
                         ),
                       ],
                     ),
                   ],
                 ),
-
                 const SizedBox(height: 24),
-
                 _StatsRow(isGuest: isGuest, uid: currentUser?.uid),
-
                 const SizedBox(height: 24),
-
                 const Text(
                   "Latest News",
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 12),
-
                 const _NewsFeed(),
               ],
             ),
           ),
         ),
-
-        /*───────────────────────────────────────────────*
-         *             CHATBOT OVERLAY + BUTTON
-         *───────────────────────────────────────────────*/
-
         AppChatBotWelcomeBanner(),
         Positioned(
           bottom: 20,
@@ -373,7 +347,7 @@ class _HomeDashboardState extends State<HomeDashboard>
 }
 
 /*───────────────────────────────────────────────────────────────*
- *                      AVATAR WIDGET
+ *                        AVATAR WIDGET
  *───────────────────────────────────────────────────────────────*/
 
 class _GlowingAvatar extends StatelessWidget {
@@ -488,7 +462,7 @@ class _GlowingAvatar extends StatelessWidget {
 }
 
 /*───────────────────────────────────────────────────────────────*
- *                        GRADIENT NAME
+ *                         GRADIENT NAME
  *───────────────────────────────────────────────────────────────*/
 
 class _GradientName extends StatelessWidget {
@@ -508,7 +482,7 @@ class _GradientName extends StatelessWidget {
       child: Text(
         "Hi, $name",
         style: const TextStyle(
-          color: Colors.white,
+          color: Color.fromARGB(175, 200, 21, 21),
           fontSize: 20,
           fontWeight: FontWeight.w700,
         ),
@@ -518,7 +492,7 @@ class _GradientName extends StatelessWidget {
 }
 
 /*───────────────────────────────────────────────────────────────*
- *                         STAT CARDS
+ *                           STAT CARDS
  *───────────────────────────────────────────────────────────────*/
 
 class _StatsRow extends StatelessWidget {
@@ -601,16 +575,18 @@ class _StatsRow extends StatelessWidget {
               children: [
                 Expanded(
                   child: _StatCard(
-                      label: "Created",
-                      value: "$createdCount",
-                      color: Colors.indigo),
+                    label: "Created",
+                    value: "$createdCount",
+                    color: Colors.indigo,
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: _StatCard(
-                      label: "Responded",
-                      value: "$responded",
-                      color: Colors.purple),
+                    label: "Responded",
+                    value: "$responded",
+                    color: Colors.purple,
+                  ),
                 ),
               ],
             );
@@ -666,7 +642,7 @@ class _StatCard extends StatelessWidget {
 }
 
 /*───────────────────────────────────────────────────────────────*
- *                        NEWS FEED
+ *                           NEWS FEED
  *───────────────────────────────────────────────────────────────*/
 
 class _NewsFeed extends StatelessWidget {
@@ -746,7 +722,7 @@ class _NewsCard extends StatelessWidget {
 }
 
 /*───────────────────────────────────────────────────────────────*
- *                 SIGN-IN REQUIRED PLACEHOLDER
+ *                  SIGN-IN REQUIRED PLACEHOLDER
  *───────────────────────────────────────────────────────────────*/
 
 class _SignInRequiredTab extends StatelessWidget {
