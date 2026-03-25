@@ -1,139 +1,88 @@
+<div align="center">
+
 # 🟦 Survexus — Smart Survey Creation & Analytics App
 
-A cross-platform Flutter application for creating surveys, collecting responses, viewing analytics dashboards, and chatting with an in-app AI assistant.
+**Create. Analyze. Scale. — A powerful survey ecosystem with built-in AI intelligence**
 
-Supports guest mode, standard users, VIP users, and an admin panel.
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![Firebase](https://img.shields.io/badge/Firebase-Backend-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
+[![Groq AI](https://img.shields.io/badge/Groq-LLaMA--3.3--70B-black?style=for-the-badge)]()
+[![Version](https://img.shields.io/badge/Version-1.0.0-orange?style=for-the-badge)]()
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)]()
+
+> A production-ready cross-platform survey platform that enables users to **create surveys, collect responses, visualize analytics**, and interact with an **AI-powered assistant** — all in a seamless, role-based system.
+
+</div>
 
 ---
 
-## 🚀 Features Overview
+## 📱 Features
 
 ### 👤 User Roles
 
-| Role   | Features                                                                                                       |
-|--------|----------------------------------------------------------------------------------------------------------------|
-| Guest  | Respond to surveys only. Cannot create surveys or view analytics.                                              |
-| User   | Create surveys, respond to surveys, see analytics for their own surveys.                                       |
-| VIP    | Unlimited surveys, advanced analytics, VIP-only features, no upsell banners.                                   |
-| Admin  | Access to admin panel, manage system-level settings, activate/close surveys, give VIP access.                  |
+| Role   | Capabilities |
+|--------|-------------|
+| **Guest**  | Respond to surveys only (no creation or analytics access) |
+| **User**   | Create surveys, respond, and view analytics for owned surveys |
+| **VIP**    | Unlimited surveys, advanced analytics, premium features, no upsell UI |
+| **Admin**  | Full system control — manage users, surveys, and VIP access |
 
 ---
 
-### 📱 Core App Features
+### 🧩 Core Functionalities
 
-- **Create Surveys:** Multiple question types, visibility management, duplicate-response protection, guest-safe mode
-- **Respond to Surveys:** Fast UI, guest mode, duplicate response prevention, tracks and stores responses in Firebase Firestore
-- **Survey Management:** Edit/delete surveys, view number of responses (real-time), organized response management
-- **Analytics Dashboard:** Bar charts, pie charts, analytics separated by survey ID, readable layouts
-- **Admin Controls:** Track/search users, activate/delete/close surveys, manage VIP access
+#### 📝 Survey Creation
+- Multiple question types (flexible structure)
+- Visibility control (public/private)
+- Duplicate-response prevention
+- Guest-safe participation mode
 
-- **VIP users:** Enhanced analytics, exclusive features
-- **In-App AI Chatbot:** Groq Llama-3.3-70B, fully role-based answers
+#### 📥 Survey Responses
+- Fast and intuitive response UI
+- Guest participation supported
+- Real-time response storage using Firebase Firestore
+- Anti-duplicate submission logic
 
----
+#### 📊 Analytics Dashboard
+- Bar charts & pie charts for insights
+- Survey-specific analytics separation
+- Clean, readable data visualization
+- Real-time updates
 
-### 🔐 Security
+#### ⚙️ Survey Management
+- Edit / delete surveys
+- Real-time response count tracking
+- Organized response handling
 
-- **API keys, keystore files, Google Services configs, APKs:** Never committed; protected by `.gitignore`
-- **lib/secrets.dart** is ignored in git and stores keys only at runtime
-- **GitHub Push Protection:** Repo blocks any push containing keys or secrets
+#### 🛡️ Admin Panel
+- User search and management
+- Activate / close / delete surveys
+- Grant or revoke VIP access
 
----
+#### 💎 VIP Features
+- Advanced analytics access
+- Unlimited survey creation
+- Premium experience (no upsell interruptions)
 
-### 🗄️ Tech Stack
-
-**Frontend:**  
-Flutter 3.x, Dart, Provider (state management)
-
-**Backend:**  
-Firebase Auth, Firebase Firestore, Firebase Cloud Messaging
-
-**AI Integration:**  
-Groq Llama-3.3-70B, role-aware agent
-
----
-
-### 📁 Project Structure
-
-lib/
-├── models/
-├── providers/
-├── screens/
-├── services/
-├── utils/
-├── widgets/
-├── secrets.dart # IGNORED — contains Groq API key
-├── main.dart # bootstrap + splash init
-assets/
-android/
-ios/
-test/ # Flutter tests
-
-text
+#### 🤖 AI Assistant
+- Powered by Groq LLaMA-3.3-70B
+- Role-aware responses (guest/user/admin/VIP context)
+- Helps with survey creation and insights
 
 ---
 
-### 🧪 Testing
+## 🛠️ Tech Stack
 
-- VIP upsell visibility (guest → upsell visible; VIP → hidden)
-- VIP feature restriction
-- Admin panel hidden from non-admins
-
-**Run tests:**  
-`flutter test`
-
----
-
-### 🏁 Running the App
-
-**Debug:**  
-`flutter run`
-
-**Release APK:**  
-`flutter build apk --release`
-
-APK output:  
-`build/app/outputs/flutter-apk/app-release.apk` (attach to GitHub releases)
+| Layer | Technology |
+|------|-----------|
+| **Framework** | Flutter 3.x / Dart |
+| **State Management** | Provider |
+| **Backend** | Firebase Auth · Firestore · Cloud Messaging |
+| **AI Integration** | Groq LLaMA-3.3-70B |
 
 ---
 
-### 🎨 App Splash Screen
+## 🏗️ Architecture
 
-- Native Android splash (white background, centered Survexus logo)
-- Configured in:  
-  - `android/app/src/main/res/drawable/launch_background.xml`  
-  - `styles.xml`  
-  - `MainActivity.kt`
-
----
-
-### 🛠️ Build & Deployment Notes
-
-**Never commit:**  
-- API keys  
-- Keystore files (`.jks`, `.keystore`)  
-- `google-services.json`  
-- APK builds
-
-These are protected by `.gitignore`.
-
-**GitHub Push Protection:**
-- If you accidentally commit a key, the push will be blocked.
-- Remove the secret, amend the commit, and push again.
-
----
-
-### 📦 Future Enhancements
-
-- Survey scheduling
-- Collaborative survey creation
-- AI-generated survey questions
-
----
-
-### Example Admin Accounts
-
-- Professor Admin  
-
-- Student Admin  
-  Email: rahul@gmail.com
+Clean modular structure for scalability and maintainability:
