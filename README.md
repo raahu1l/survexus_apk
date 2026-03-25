@@ -11,7 +11,7 @@
 [![Version](https://img.shields.io/badge/Version-1.0.0-orange?style=for-the-badge)]()
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)]()
 
-> A production-ready cross-platform survey platform that enables users to **create surveys, collect responses, visualize analytics**, and interact with an **AI-powered assistant** — all in a seamless, role-based system.
+> A Feature rich-ready cross-platform survey platform that enables users to **create surveys, collect responses, visualize analytics**, and interact with an **AI-powered assistant** — all in a seamless, role-based system.
 
 </div>
 
@@ -86,3 +86,99 @@
 ## 🏗️ Architecture
 
 Clean modular structure for scalability and maintainability:
+
+lib/
+├── models/
+├── providers/
+├── screens/
+├── services/
+├── utils/
+├── widgets/
+├── secrets.dart
+├── main.dart
+assets/
+android/
+ios/
+test/
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Flutter SDK >=3.0.0 <4.0.0
+- Firebase project setup
+- Groq API key
+
+### Setup
+
+git clone https://github.com/your-username/survexus.git
+cd survexus
+
+flutter pub get
+flutter run
+
+---
+
+## 🧪 Testing
+
+- VIP upsell visibility logic
+- VIP feature restrictions
+- Admin panel access control
+
+flutter test
+
+---
+
+## 📦 Build
+
+### Debug
+flutter run
+
+### Release APK
+flutter build apk --release
+
+Output:
+build/app/outputs/flutter-apk/app-release.apk
+
+---
+
+## 🎨 Splash Screen
+
+- Native Android splash (white background, centered logo)
+- Config files:
+  - launch_background.xml
+  - styles.xml
+  - MainActivity.kt
+
+---
+
+## 🔐 Security
+
+- API keys, keystores, and configs are never committed
+- secrets.dart is ignored via .gitignore
+- GitHub Push Protection prevents accidental leaks
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Survey scheduling
+- [ ] Collaborative surveys
+- [ ] AI-generated survey questions
+
+---
+
+## 👨‍💻 Author
+
+Rahul Walawalkar  
+walawalkarrahul729@gmail.com  
+https://github.com/raahu1l
+
+---
+
+<div align="center">
+
+Built with Flutter · Star ⭐ if you find it useful
+
+</div>
