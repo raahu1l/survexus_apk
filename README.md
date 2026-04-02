@@ -8,7 +8,7 @@
 [![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
 [![Firebase](https://img.shields.io/badge/Firebase-Backend-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
 [![Groq AI](https://img.shields.io/badge/Groq-LLaMA--3.3--70B-black?style=for-the-badge)]()
-[![Version](https://img.shields.io/badge/Version-1.0.0-orange?style=for-the-badge)]()
+[![Version](https://img.shields.io/badge/Version-1.1.0-orange?style=for-the-badge)]()
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)]()
 
 > A Feature rich-ready cross-platform survey platform that enables users to **create surveys, collect responses, visualize analytics**, and interact with an **AI-powered assistant** — all in a seamless, role-based system.
